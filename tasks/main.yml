@@ -1,0 +1,46 @@
+- name: Add history search shortcuts to inputrc
+  lineinfile:
+    dest: /etc/skel/.bashrc
+    state: absent
+    line: "    alias ls='ls --color=auto'"
+
+- name: Add history search shortcuts to inputrc
+  lineinfile:
+    dest: /etc/inputrc
+    line: '{{ item }}'
+  with_items:
+    - '"\e[A": history-search-backward'
+    - '"\e[B": history-search-forward'
+    - 'set show-all-if-ambiguous on'
+    - '"\e[1;5C": forward-word'
+    - '"\e[1;5D": backward-word'
+
+
+- name: SUDO Copy aliases to /etc/profile.d
+  copy:
+    src: aliases.sh
+    dest: /etc/profile.d/aliases.sh
+    owner: root
+    group: root
+    mode: u+rw,g-wx,o-wx
+
+- name: SUDO Copy aliases to /etc/skel/.bash_aliases
+  copy:
+    src: aliases.sh
+    dest: /etc/skel/.bash_aliases
+    owner: root
+    group: root
+    mode: u+rw,g-wx,o-wx
+
+- name: Add history search shortcuts to inputrc
+  lineinfile:
+    dest: /etc/skel/.inputrc
+    line: '{{ item }}'
+    state: present
+    create: yes
+  with_items:
+    - '"\e[A": history-search-backward'
+    - '"\e[B": history-search-forward'
+    - 'set show-all-if-ambiguous on'
+    - '"\e[1;5C": forward-word'
+    - '"\e[1;5D": backward-word'

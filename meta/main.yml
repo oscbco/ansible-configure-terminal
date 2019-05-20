@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Oscar Barrera
+  role_name: configure-terminal
+  description: Role for configuring /etc/inputrc and /etc/profile.d/aliases.sh to make the terminal easier to use
+  license: license (MIT)
+  min_ansible_version: 2.5
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+  galaxy_tags: []
+dependencies: []
