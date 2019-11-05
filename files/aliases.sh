@@ -1,4 +1,3 @@
-alias clear='echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";echo "";/usr/bin/clear'
 alias df='df -Thl'
 alias cls='/usr/bin/clear'
 alias cd..='cd ..'
@@ -7,4 +6,5 @@ alias tree='/usr/bin/tree  --dirsfirst -aFI "node_modules|.git|.vagrant|.npm"'
 alias reset="tput reset"
 alias reser="tput reset"
 alias RESET="tput reset"
+alias cc="tput reset"
 alias ls='ls -hal --group-directories-first'
